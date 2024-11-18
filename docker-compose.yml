@@ -1,0 +1,22 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:cuda
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    deploy:
+      restart_policy:
+        condition: always
+    volumes:
+      - C:\Users\wildi\Repositories-Win\openwebui\data:/app/backend/data
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - WEBUI_AUTH=false
+      - OLLAMA_BASE_URL=http://host.docker.internal:8001
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  open-webui:
+
+
