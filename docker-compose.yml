@@ -3,7 +3,7 @@ services:
     image: ghcr.io/open-webui/open-webui:cuda
     container_name: open-webui
     ports:
-      - "3000:8080"
+      - "3101:8080"
     deploy:
       restart_policy:
         condition: always
@@ -12,11 +12,11 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - WEBUI_AUTH=false
-      - OLLAMA_BASE_URL=http://host.docker.internal:8001
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
 volumes:
-  open-webui:
+  openwebui:
 
 
